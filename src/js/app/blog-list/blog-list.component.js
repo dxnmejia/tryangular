@@ -2,9 +2,12 @@
 
 angular.module('blogList')
     .component('blogList', {
-        //template: "<div class=''><h1 class='new-class'> {{ title }} </h3><button ng-click='someClickTest()'>Click here!</button></div>",
         templateUrl: '/templates/blog-list.html',
-        controller: function($scope) {
+        controller: function($routeParams, $scope) {
+            // This is with the purpose of testing and checking the
+            // values of $routeParams for now...
+            console.log($routeParams);
+
             var blogItems = [
                 {title: "Some Title", id: 1, description: "This is a book", publishDate: "2017-03-09"},
                  {title: "Title", id: 2, description: "This is a book"},
