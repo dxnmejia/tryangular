@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="try">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=decive-width, initial-scale=1">
         <title>Try Angular 1.5</title>
-        <!-- <script src="./js/andular.min.js" ></script> -->
-        <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+        <script src="./js/angular.min.js" ></script>
+        <!-- <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script> -->
+        <script src="./js/app/app.module.js" ></script>
+        <script src="./js/app/app.config.js" ></script>
     </head>
     <body>
         <style>
@@ -18,7 +20,6 @@
                 font-size: 120px;
             }
         </style>
-        <!-- ng-class. Add other-class if name is equal to Dixon, and adds new-class2 if font is equal to 120 -->
         <h1 class="new-class" ng-class="{'other-class': name =='Dixon', 'new-class2': font == 120 }">
             Hello, 
             <span ng-if="name">{{ name }}</span>
