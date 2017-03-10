@@ -2,7 +2,8 @@
 
 angular.module('blogList')
     .component('blogList', {
-        template: "<div class=''><h1 class='new-class'> {{ title }} </h3><button ng-click='someClickTest()'>Click here!</button></div>",
+        //template: "<div class=''><h1 class='new-class'> {{ title }} </h3><button ng-click='someClickTest()'>Click here!</button></div>",
+        templateUrl: '/templates/blog-list.html',
         controller: function($scope) {
             console.log("hello");
             $scope.title = "Hi there";
@@ -14,15 +15,3 @@ angular.module('blogList')
             }
         }
     });
-
-    // .controller('BlogListController', function() {
-    //     console.log("hello");
-    //     this.title = "Hi there";
-    //     this.clicks = 0;
-    //     this.someClickTest = function() {
-    //         console.log("clicked");
-    //         this.clicks++;
-    //         this.title = "Clicked " + this.clicks + " times";
-    //     }
-    // });
-//    .component('blogList');
