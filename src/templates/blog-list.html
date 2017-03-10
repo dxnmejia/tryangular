@@ -1,4 +1,10 @@
-<div class=''>
-    <h1 class='new-class'> {{ title }} </h3>
-    <button ng-click='someClickTest()'>Click here!</button>
-</div>
+<h1>Blog List </h1>
+<!-- {{ items }} -->
+<ul ng-if='items.length > 0'>
+    <li ng-repeat='item in items'>
+        <a ng-href='/blog/{{ item.id }}'>{{ item.title }} {{ item.publishDate }}</a>
+    </li>
+</ul>
+
+<span ng-if='items.length > 3'>{{ items.length }} Items currently</span>
+<span ng-if='items.length == 0'>Post coming soon...</span>
