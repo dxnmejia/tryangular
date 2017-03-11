@@ -2,7 +2,7 @@
 
 angular.module('blogDetail')
     .component('blogDetail', {
-        templateUrl: '/templates/blog-detail.html',
+        templateUrl: 'templates/my-portfolio.html',
         controller: function($location, $routeParams, $scope) {
             var blogItems = [
                 {title: "Some Title", id: 1, description: "This is a book", publishDate: "2017-03-09"},
@@ -30,6 +30,5 @@ angular.module('blogDetail')
 
 
 
-            })
         }
     });

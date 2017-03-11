@@ -2,8 +2,8 @@
 
 angular.module('try', [
     // external resource. Outside my app
-    //'ngResource',
-    //'ngRouter',
+    'ngResource',
+    'ngRoute',
     
     // internal resource. Something I created
     'blogDetail',
