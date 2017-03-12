@@ -4,10 +4,6 @@ angular.module('blogDetail')
     .component('blogDetail', {
         templateUrl: 'templates/blog-detail.html',
         controller: function(Post, $http, $location, $routeParams, $scope) {
-
-            // console.log(Post.query());
-            // console.log(Post.get());
-
             Post.query(function(data) {
                 $scope.notFound = true;
                 angular.forEach(data, function(post) {
@@ -20,8 +16,7 @@ angular.module('blogDetail')
             
             if($scope.notFound) {
                 console.log("Not found");
-                // change location
-                $location.path("/404"); // Just with the purpose of changing the URL.
+                $location.path("/404");
             }
         }
     });

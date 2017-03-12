@@ -7,4 +7,6 @@ angular.module('try', [
     
     // internal resource. Something I created
     'blogDetail',
-    'blogList']);
+    'blogList',
+    'confirmClick'
+    ]);
