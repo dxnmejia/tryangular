@@ -22,6 +22,14 @@ angular.module('blogDetail')
                 resetReply();
             }
 
+            $scope.deleteComment = function(comment) {
+                console.log("Deleted");
+                $scope.$apply( // It makes the change to the scope
+                    $scope.post.comments.splice(comment, 1) // Delete it
+                );
+                // someResource.$delete()
+            }
+
             function resetReply() {
                 $scope.reply = {
                     "id": $scope.post.comments.length + 1,

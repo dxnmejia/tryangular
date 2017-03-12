@@ -11,7 +11,7 @@
         <input type="text" ng-model="query" placeholder="Filter Comments" />
     </li>
     <li ng-repeat="comment in post.comments | filter: query">
-        {{ comment.text }}
+        {{ comment.text }} <a ng-href="#"  confirm-click confirmed-click="deleteComment(comment)">Confirm</a> <a ng-href="#" ng-click="deleteComment(comment)">Delete</a>
     </li>
 </ul>
 
