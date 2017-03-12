@@ -12,6 +12,7 @@ angular.module('confirmClick')
                     event.preventDefault();
 
                     if (window.confirm(msg)) {
+                        // Evaluate clickAction as an expression and execute it
                         scope.$eval(clickAction);
                     }
                     else {
