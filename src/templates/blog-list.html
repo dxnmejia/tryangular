@@ -1,9 +1,13 @@
 <h1>Blog List </h1>
 <!-- {{ items }} -->
 <ul ng-if='items.length > 0'>
-    <li ng-repeat='item in items'>
-        <a ng-href="/blog/{{ item.id }}" confirm-click="Are you ready?" confirmed-click="/blog/{{ item.id }}" >{{ item.title }} {{ item.publishDate }}</a>
-        <!--<confirm-click message="Are you positive?" eq="10 + 1000" post='item'></confirm-click>-->
+    <li ng-repeat='post in items'>
+        <!--    
+            goToItem(post) will handle the redirection to the next page.
+            In that way, we can just leave ng-href with # to hide the url where we are going
+        -->
+        <a ng-href="#" confirm-click="Are you ready?" confirmed-click="goToItem(post)" >{{ post.title }} {{ post.publishDate }}</a>
+        <!--<a href="#" ng-click="goToItem(post)" >{{ post.title }} {{ post.publishDate }}</a>-->
     </li>
 </ul>
 
