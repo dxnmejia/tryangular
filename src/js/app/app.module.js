@@ -2,6 +2,7 @@
 
 angular.module('try', [
     // external resource. Outside my app
+//    'angularUtils.directives.dirPagination',
     'ngResource',
     'ngRoute',
     

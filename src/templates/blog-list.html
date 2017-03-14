@@ -4,21 +4,37 @@
         <input type="text" ng-model="query" class="form-control" placeholder="Filter" />
     </div>
 </div>
-<span ng-if='items.length > 3'>{{ items.length }} Items currently</span>
-<div ng-repeat="items in colItems">
-    <div class="row">
-    <div class="{{ cssClass }}" ng-repeat='post in items | filter:query '>
+
+<!-- Test section -->
+<li dir-paginate="item in items | filter: query | itemsPerPage: 5" pagination-id="subItems">
+    {{ item.title }}
+</li>
+<span ng-if="subItems.length == 0">No Sub Items found.</span>
+<dir-pagination-controls ng-hide="query.length > 0" pagination-id="subItems"></dir-pagination-controls>
+
+
+<span ng-if="items.length == 0">Post coming soon.</span>
+
+<!-- The order of dir-paginate parameter may affect functionality. Keep this in mind. -->
+<div dir-paginate="items in colItems | filter: query | itemsPerPage: 4" pagination-id="mainItems">
+    <!-- 
+        itemsPerPage will limit the amount of item BLOCKS (or rows) that will be shown)
+        In this case, we only want 4 rows.
+
+        The following statement prints the items inside this block.
+    -->
+    <div class="{{ cssClass }}" ng-repeat='post in items'>
         <div class="thumbnail">
-        <img src="..." alt="...">
-        <div class="caption">
-            <h3>{{ post.title }}</h3>
-            <p>{{ post.description }}</p>
-            <p>{{ post.publishDate }}</p>
-            <p><a ng-href="#" class="btn btn-primary" confirm-click="Are you ready?" confirmed-click="goToItem(post)" >View</a>
-            </p>
+            <img src="..." alt="...">
+            <div class="caption">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.description }}</p>
+                <p>{{ post.publishDate }}</p>
+                <p><a ng-href="#" class="btn btn-primary" confirm-click="Are you ready?" confirmed-click="goToItem(post)" >View</a></p>
+            </div>
         </div>
-        </div>
-    </div>
     </div>
 </div>
 
+<dir-pagination-controls ng-hide="query.length > 0" pagination-id="mainItems"></dir-pagination-controls>
+<span ng-if="mainItems.length == 0">No Main Items found.</span>
