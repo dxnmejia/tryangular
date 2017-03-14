@@ -5,9 +5,11 @@ angular.module('try', [
     'angularUtils.directives.dirPagination',
     'ngResource',
     'ngRoute',
+    'ngAnimate',
     
     // internal resource. Something I created
     'blogDetail',
     'blogList',
-    'confirmClick'
+    'confirmClick',
+    'tryNav'
     ]);

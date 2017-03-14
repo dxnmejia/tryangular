@@ -18,6 +18,7 @@ angular.module('try')
                 .when("/blog/:id", {
                     template: "<blog-detail></blog-detail>"
                 })
+                .when("/images", {})
                 .otherwise({
                     template: "Not found"
                 });
