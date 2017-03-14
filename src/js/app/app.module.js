@@ -6,6 +6,7 @@ angular.module('try', [
     'ngResource',
     'ngRoute',
     'ngAnimate',
+    'ui.bootstrap',
     
     // internal resource. Something I created
     'blogDetail',

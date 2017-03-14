@@ -1,32 +1,40 @@
-<h1 class="page-header">Blog List <a href="#" ng-click="changeCols(4)"><small>Change</small></a></h1>
 <div class="row">
-    <div class="col-sm-6">
-        <input type="text" ng-model="query" class="form-control" placeholder="Filter" /><br>
-        <label>Order by:</label>
-        <select ng-model="order" class="form-control"> 
-            <option value="title">A-Z</option>
-            <option value="-title">Z-A</option>
-            <option value="publishDate">Oldest</option>
-            <option value="-publishDate">Latest</option>
-        </select>
-        <dir-pagination-controls pagination-id="mainItems"></dir-pagination-controls>
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1 class="page-header">Blog List</h1>
+        <div class="row">
+            <div class="col-sm-6">
+                <input type="text" ng-model="query" class="form-control" placeholder="Filter" />
+            </div>
+            <div class="col-sm-6">
+                <select ng-model="order" class="form-control"> 
+                    <option value="title">A-Z</option>
+                    <option value="-title">Z-A</option>
+                    <option value="publishDate">Oldest</option>
+                    <option value="-publishDate">Latest</option>
+                </select>
+            </div>
+        </div>
+        <dir-pagination-controls pagination-id="mainItems" ng-hide="query.length > 0"></dir-pagination-controls>
+        <br>
+        <span ng-if="items.length == 0">Post coming soon.</span>
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-12">
-        <div class="col-sm-6 col-sm-offset-3" dir-paginate='post in items | orderBy: order | filter: query | itemsPerPage: 4' pagination-id="mainItems">
-            <div class="thumbnail">
-                <img src="{{ post.image }}" alt="{{ post.title }}" />
-                <div class="caption">
-                    <h3>{{ post.title }}</h3>
-                    <p>{{ post.description }}</p>
-                    <p>{{ post.publishDate }}</p>
-                    <p><a ng-href="#" class="btn btn-primary" confirm-click="Are you ready?" confirmed-click="goToItem(post)" >View</a></p>
-                </div>
+    <div class="col-sm-6 col-sm-offset-3" dir-paginate='post in items | orderBy: order | filter: query | itemsPerPage: 4 as postItems' pagination-id="mainItems">
+        <div class="thumbnail">
+            <img src="{{ post.image }}" alt="{{ post.title }}" />
+            <div class="caption">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.description }}</p>
+                <p>{{ post.publishDate }}</p>
+                <p><a ng-href="#" class="btn btn-primary" confirm-click="Are you ready?" confirmed-click="goToItem(post)" >View</a></p>
             </div>
         </div>
     </div>
-    <dir-pagination-controls pagination-id="mainItems"></dir-pagination-controls>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <span ng-if="postItems.length == 0">No posts found.</span>
+        <dir-pagination-controls pagination-id="mainItems" ng-hide="query.length > 0"></dir-pagination-controls>
 </div>
 
-<span ng-if="items.length == 0">Post coming soon.</span>

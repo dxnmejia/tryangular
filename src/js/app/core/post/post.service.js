@@ -8,13 +8,13 @@ angular.module('post')
                 method: "GET",
                 params: {},
                 isArray: true,
-                cache: true,
+                cache: false, // true to cache the info
 
             },
             get: {
                 method: "GET",
                 isArray: true,
-                cache: true,
+                cache: false,
             }
         })
     });
