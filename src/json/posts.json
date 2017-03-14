@@ -1,10 +1,16 @@
 [
-    {"title": "Samsung", "id": 1, "description": "This is a samsung phone", "publishDate": "2017-01-09",
+    {"title": "Samsung", "id": 1, "description": "This is a samsung phone", "publishDate": "2017-03-09",
                     "comments": [
                         {"id": 1, "text": "Nice phone"},
                         {"id": 2, "text": "Another comment"}
                     ],
                     "image": "/images/1.jpg"},
+    {"title": "iPhone", "id": 2, "description": "This is a apple phone", "publishDate": "2017-02-31", "image": "/images/2.jpg"},
+    {"title": "Pixel", "id": 3, "description": "This is a google phone", "publishDate": "2016-11-27", "image": "/images/3.jpg"},
+    {"title": "Nexus", "id": 4, "description": "This is a google phone", "publishDate": "2016-09-15", "image": "/images/4.jpg"},
+    {"title": "iPhone", "id": 2, "description": "This is a apple phone", "publishDate": "2017-02-31", "image": "/images/2.jpg"},
+    {"title": "Pixel", "id": 3, "description": "This is a google phone", "publishDate": "2016-11-27", "image": "/images/3.jpg"},
+    {"title": "Nexus", "id": 4, "description": "This is a google phone", "publishDate": "2016-09-15", "image": "/images/4.jpg"},
     {"title": "iPhone", "id": 2, "description": "This is a apple phone", "publishDate": "2017-02-31", "image": "/images/2.jpg"},
     {"title": "Pixel", "id": 3, "description": "This is a google phone", "publishDate": "2016-11-27", "image": "/images/3.jpg"},
     {"title": "Nexus", "id": 4, "description": "This is a google phone", "publishDate": "2016-09-15", "image": "/images/4.jpg"}

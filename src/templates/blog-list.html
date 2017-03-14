@@ -9,37 +9,24 @@
             <option value="publishDate">Oldest</option>
             <option value="-publishDate">Latest</option>
         </select>
-        <li ng-repeat="post in items | orderBy: order">
-            {{ post.title }} ({{ post.publishDate }})
-        </li>
+        <dir-pagination-controls pagination-id="mainItems"></dir-pagination-controls>
     </div>
 </div>
-<br>
-
-<span ng-if="items.length == 0">Post coming soon.</span>
-<div class="row col-sm-12">
-<!-- The order of dir-paginate parameter may affect functionality. Keep this in mind. -->
-<div dir-paginate="items in colItems | itemsPerPage: 4" pagination-id="mainItems">
-    <!-- 
-        itemsPerPage will limit the amount of item BLOCKS (or rows) that will be shown)
-        In this case, we only want 4 rows.
-
-        The following statement prints the items inside this block.
-    -->
-    <div class="row">
-    <div class="{{ cssClass }}" ng-repeat='post in items | filter: query'>
-        <div class="thumbnail">
-            <img src="{{ post.image }}" alt="{{ post.title }}">
-            <div class="caption">
-                <h3>{{ post.title }}</h3>
-                <p>{{ post.description }}</p>
-                <p>{{ post.publishDate }}</p>
-                <p><a ng-href="#" class="btn btn-primary" confirm-click="Are you ready?" confirmed-click="goToItem(post)" >View</a></p>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="col-sm-6 col-sm-offset-3" dir-paginate='post in items | orderBy: order | filter: query | itemsPerPage: 4' pagination-id="mainItems">
+            <div class="thumbnail">
+                <img src="{{ post.image }}" alt="{{ post.title }}" />
+                <div class="caption">
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.description }}</p>
+                    <p>{{ post.publishDate }}</p>
+                    <p><a ng-href="#" class="btn btn-primary" confirm-click="Are you ready?" confirmed-click="goToItem(post)" >View</a></p>
+                </div>
             </div>
         </div>
     </div>
-    </div>
+    <dir-pagination-controls pagination-id="mainItems"></dir-pagination-controls>
 </div>
-</div>
-<dir-pagination-controls ng-hide="query.length > 0" pagination-id="mainItems"></dir-pagination-controls>
-<span ng-if="mainItems.length == 0">No Main Items found.</span>
+
+<span ng-if="items.length == 0">Post coming soon.</span>
