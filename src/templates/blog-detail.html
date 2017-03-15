@@ -2,19 +2,22 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="page-header">
-        <h1>{{ post.title }} <small>{{ post.publishDate }}</small></h1>
+            <h1>{{ post.title }} <small>{{ post.publishDate }}</small></h1>
         </div>
+        <span ng-if="post.image">
+            <img class="image-responsive" style="width: 100%;" ng-src="{{ post.image }}" alt="{{ post.title }}" /><br>
+        </span>
         <p>{{ post.description }}</p>
         <hr>
         <div class="row">
             <div class="col-sm-6">
-                <h3>Comments </h3>
-                <input type="text" class="form-control" ng-model="query" placeholder="Filter Comments" />
+                <h3>Comments</h3>
+                <input ng-show="comments.length > 0" type="text" class="form-control" ng-model="query" placeholder="Filter Comments" /><br>
             </div>
         </div>
-        <ul>
-            <li ng-repeat="comment in post.comments | filter: query">
-                {{ comment.text }} <a ng-href="#"  confirm-click confirmed-click="deleteComment(comment)">Confirm</a> <a ng-href="#" ng-click="deleteComment(comment)">Delete</a>
+        <ul ng-show="comments.length > 0">
+            <li ng-repeat="comment in comments | filter: query">
+                {{ comment.text }} <a ng-href="#" confirm-click confirmed-click="deleteComment(comment)" class="btn btn-sm btn-default">x</a><br>
             </li>
         </ul>
         <hr>
@@ -23,7 +26,7 @@
                 <p style="color: red" ng-if="reply.text">Reply: {{ reply.text }}</p>
                 <form ng-submit="addReply()">
                     <input type="hidden" class="form-control" ng-model="reply.id" value="5"/>
-                    <textarea class="form-control" ng-model="reply.text"></textarea>
+                    <textarea class="form-control" ng-model="reply.text"></textarea><br>
                     <input class="btn btn-default" type="submit"/>
                 </form>
             </div>
@@ -31,5 +34,3 @@
     </div>
 </div>
 </div>
-
-<a href="/../..">Back</a>

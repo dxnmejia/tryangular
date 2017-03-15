@@ -18,6 +18,10 @@ angular.module('try')
                 .when("/blog/:id", {
                     template: "<blog-detail></blog-detail>"
                 })
+                .when("/blog", {
+                    template: "<blog-list></blog-list>",
+                    // redirectTo: "/"
+                })
                 .when("/images", {})
                 .otherwise({
                     template: "Not found"

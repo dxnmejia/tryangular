@@ -4,6 +4,11 @@ angular.module('blogList')
     .component('blogList', {
         templateUrl: '/templates/blog-list.html',
         controller: function(Post, $location, $routeParams, $rootScope, $scope) {
+            var q = $location.search().q;
+            if (q) {
+                $scope.query = q;
+                $scope.searchQuery = true;
+            }
             $scope.order = "-publishDate";
             $scope.goToItem = function(post) {
                 $rootScope.$apply(function() {
@@ -27,6 +32,9 @@ angular.module('blogList')
                 if ($scope.query) { // If a query for filtering is defined
                     $scope.loadingQuery = true;
                     $scope.cssClass = "col-sm-12";
+                    if ($scope.query != q) {
+                        $scope.searchQuery = false;
+                    }
                 } else {
                     if ($scope.loadingQuery) { // If query is set, make the changes
                         setUpCols($scope.items, 4);

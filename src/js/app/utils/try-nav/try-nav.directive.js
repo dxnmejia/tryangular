@@ -13,11 +13,8 @@ angular.module('tryNav')
                     scope.searchQuery = "";
                 }
                 scope.searchItem = function() {
-                    // $location.path("/blog/?q=" + scope.searchQuery);
-                    // The reason why we are using the search function is to avoid the 
-                    // usual escaping of the '?' character in URLs.
                     $location.path("/blog/").search("q", scope.searchQuery);
-                    
+                    scope.searchQuery = "";
                 }
             }
         }
